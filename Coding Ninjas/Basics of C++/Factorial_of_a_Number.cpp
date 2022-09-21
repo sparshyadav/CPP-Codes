@@ -7,10 +7,23 @@ int main()
     int n;
     cin >> n;
     int j = 1;
-    for (int i = 1; i <= n; i++)
+
+    if (n > 0)
     {
-        j = j * i;
+        for (int i = 1; i <= n; i++)
+        {
+            j = j * i;
+        }
+        cout << j;
     }
-    cout << j;
+    else if (n == 0)
+    {
+        cout << j;
+    }
+    else
+    {
+        cout << "Error";
+    }
+
     return 0;
 }
