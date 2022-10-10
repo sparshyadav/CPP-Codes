@@ -1,26 +1,37 @@
-#include <bits/stdc++.h> 
+#include <bits/stdc++.h>
 #include <iostream>
 
 using namespace std;
 
-//Write your totalPrime function here
-int totalPrime(int S, int E){
-    int i=S;
-    int count=0;
-    for(i; i<=E; i++){
-        for(int j=2; j<i; j++){
-            if(i%j!=0){
-                count++;
-            }
-            else{
-                count+=0;
-            }
+// Write your totalPrime function here
+bool isprime(int n)
+{
+    int i = 2;
+    for (int i = 2; i < n; i++)
+    {
+        if (n % i == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+int totalPrime(int S, int E)
+{
+    int count = 0;
+
+    for (int i = S; i <= E; i++)
+    {
+        if (isprime(i))
+        {
+            count++;
         }
     }
     return count;
 }
 
-int main() {
+int main()
+{
     int S, E;
     cin >> S >> E;
     cout << totalPrime(S, E);
