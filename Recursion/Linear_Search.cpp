@@ -1,5 +1,5 @@
 // Write a program to find whether an element is present in an array or not.
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 bool linearSearch(int arr[], int size, int key)
@@ -14,14 +14,14 @@ bool linearSearch(int arr[], int size, int key)
     }
     else
     {
-        int ans(arr + 1, size - 1, key);
-        return ans;
+        bool remainingPart = linearSearch(arr + 1), size - 1, key;
+        return remainingPart;
     }
 }
 
 int main()
 {
-
+    
     int arr[5];
     int size = 5;
     cout << "Enter the values: " << endl;
@@ -34,8 +34,16 @@ int main()
     cout << "Enter the Key Value: " << endl;
     cin >> key;
 
-    int ans = linearSearch(arr, size, key);
-    cout << "The answer is: " << ans;
+    bool ans = linearSearch(arr, size, key);
+    
+    if (ans)
+    {
+        cout << "Present" << endl;
+    }
+    else
+    {
+        cout << "Absent" << endl;
+    }
 
     return 0;
 }
