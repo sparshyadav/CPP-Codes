@@ -2,7 +2,7 @@
 using namespace std;
 
 void update(int &n){ //this is known as pass by reference, when reference variable is passed in a function
-    cout<<n++<<endl;
+    n++;
 }
 
 int main(){

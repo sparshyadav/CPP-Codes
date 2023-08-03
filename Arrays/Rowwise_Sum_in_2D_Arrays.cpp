@@ -17,7 +17,7 @@ void rowSum(int arr[][3], int m, int n)
     }
 }
 
-void colSum(int arr[][3], int m, int n)
+void colSum(int arr[][3], int m, int n) 
 {
 
     for (int i = 0; i < m; i++)
