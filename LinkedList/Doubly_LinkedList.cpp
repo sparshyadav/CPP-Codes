@@ -80,6 +80,40 @@ class DoublyLinkedList{
         temp->next=newNode;
         return;
     }
+
+    void deleteAtHead(){
+        if(head==NULL){
+            return;
+        }
+        Node* temp=head;
+        head=temp->next;
+        head->prev=NULL;
+        return;
+    }
+
+    void deleteAtTail(){
+        if(tail==NULL){
+            return;
+        }
+        tail=tail->prev;
+        tail->next=NULL;
+        return;
+    }
+
+    void deleteAtKthPosition(int pos){
+        if(head==NULL){
+            return;
+        }
+        Node* temp=head;
+        int count=1;
+        while(temp->next!=NULL && count<pos-1){
+            temp=temp->next;
+            count++;
+        }
+        temp->next=temp->next->next;
+        temp->next->prev=temp;
+        return;
+    }
 };
 
 int main(){
@@ -105,6 +139,33 @@ int main(){
 
     dll.insertAtKthPosition(3, 7);
     dll.insertAtKthPosition(5, 10);
+
+    dll.display();
+
+    dll.deleteAtHead();
+
+    dll.display();
+
+    dll.deleteAtHead();
+
+    dll.display();  
+
+    dll.deleteAtTail();
+
+    dll.display();
+
+    dll.deleteAtTail();
+
+    dll.display(); 
+
+    dll.insertAtTail(12);
+    dll.insertAtTail(15);
+    dll.insertAtTail(18);
+
+    dll.display(); 
+
+    dll.deleteAtKthPosition(3);
+    dll.deleteAtKthPosition(5);
 
     dll.display();
 
