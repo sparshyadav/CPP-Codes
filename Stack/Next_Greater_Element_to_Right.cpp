@@ -8,16 +8,11 @@ vector<int> NGR(vector<int> &arr){
     stack<int> st;
     
     for(int i=arr.size()-1; i>=0; i--){
-        if(st.size()>0 && st.top()>arr[i]){
-            ans[i]=st.top();
-        }
-        else if(st.size()>0 && st.top()<arr[i]){
-            while(!st.empty() && st.top()<arr[i]){
+        while(!st.empty() && st.top()<arr[i]){
             st.pop();
-            }
-            if(!st.empty() && st.top()>arr[i]){
-                ans[i]=st.top();
-            }
+        }
+        if(!st.empty() && st.top()>arr[i]){
+            ans[i]=st.top();
         }
         st.push(arr[i]);
     }
