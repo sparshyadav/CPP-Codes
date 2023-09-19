@@ -16,9 +16,37 @@ int ans(string str)
         {
             num.push(ascii - 48);
         }
-        else if (op.size() == 0)
+        else if (op.size() == 0 || str[i] == '(' || op.top() == '(')
         {
             op.push(str[i]);
+        }
+        else if (str[i] == ')')
+        {
+            while (op.top() != '(')
+            {
+                int v2 = num.top();
+                num.pop();
+                int v1 = num.top();
+                num.pop();
+                if (op.top() == '-')
+                {
+                    num.push(v1 - v2);
+                }
+                else if (op.top() == '+')
+                {
+                    num.push(v1 + v2);
+                }
+                else if (op.top() == '*')
+                {
+                    num.push(v1 * v2);
+                }
+                else if (op.top() == '/')
+                {
+                    num.push(v1 / v2);
+                }
+                op.pop();
+            }
+            op.pop();
         }
         else
         {
@@ -104,7 +132,7 @@ int ans(string str)
 int main()
 {
 
-    string str = "9-5+3*4/6";
+    string str = "9-(5+3)*4/6";
     int result = ans(str);
     cout << result;
 
