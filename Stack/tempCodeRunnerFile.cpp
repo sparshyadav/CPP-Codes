@@ -1,0 +1,1 @@
+op.push(str[i]);
