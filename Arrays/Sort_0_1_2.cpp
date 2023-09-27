@@ -14,22 +14,25 @@ void sort(int arr[], int n)
             arr[mid] = arr[start];
             arr[start] = temp;
             start++;
+            mid++;
         }
-        else if (arr[mid] == 2)
+        else if (arr[mid] == 1)
         {
+            mid++;
+        }
+        else{
             int temp = arr[mid];
             arr[mid] = arr[end];
             arr[end] = temp;
             end--;
         }
-        mid++;
     }
 }
 
 int main()
 {
 
-    int arr[9] = {0, 1, 2, 0, 1, 2, 0, 1, 2};
+    int arr[9] = {2, 2, 2, 2, 0, 0, 1, 0};
     sort(arr, 9);
 
     for (int i = 0; i < 9; i++)
