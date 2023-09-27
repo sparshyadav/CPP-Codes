@@ -4,5 +4,6 @@
         "chrono": "cpp",
         "algorithm": "cpp",
         "iostream": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
