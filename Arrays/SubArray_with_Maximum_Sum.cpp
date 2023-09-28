@@ -19,7 +19,7 @@ int maxSubarraySum(int arr[], int n)
 int main()
 {
 
-    int arr[9] = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    int arr[9] = {-2, 1, 3, -2, 1, 4, -5, 1};
     int result = maxSubarraySum(arr, 9);
     cout << "The Maximum Subarray Sum is: " << result;
 
