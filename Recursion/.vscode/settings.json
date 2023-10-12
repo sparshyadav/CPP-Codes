@@ -3,6 +3,9 @@
     "files.associations": {
         "iostream": "cpp",
         "vector": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "string_view": "cpp",
+        "regex": "cpp",
+        "ostream": "cpp"
     }
 }
