@@ -19,7 +19,7 @@ int maxDepth(Node* rootNode){
     if(rootNode->right==NULL || rootNode->left==NULL){
         return 1;
     }
-    int sum=maxDepth(rootNode->left)+maxDepth(rootNode->right);
+    int sum=maxDepth(rootNode->left)+maxDepth(rootNode->right)+1;
     return sum;
 }
 
