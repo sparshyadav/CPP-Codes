@@ -48,6 +48,37 @@ void postorderTraversal(Node *rootNode)
     cout << rootNode->value << " ";
 }
 
+void levelorderTraversal(Node *rootNode)
+{
+    if (rootNode == NULL)
+    {
+        return;
+    }
+
+    queue<Node *> q;
+    q.push(rootNode);
+
+    while (!q.empty())
+    {
+        int size = q.size();
+        while (size--)
+        {
+            Node *currNode = q.front();
+            q.pop();
+            if (currNode->left)
+            {
+                q.push(currNode->left);
+            }
+            if (currNode->right)
+            {
+                q.push(currNode->right);
+            }
+            cout << currNode->value << " ";
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
 
@@ -71,6 +102,8 @@ int main()
     inorderTraversal(rootNode);
     cout << endl;
     postorderTraversal(rootNode);
+    cout << endl;
+    levelorderTraversal(rootNode);
     cout << endl;
 
     return 0;
