@@ -15,11 +15,23 @@ public:
     }
 };
 
+// int maxDepth(Node* rootNode){
+//     if(rootNode->right==NULL || rootNode->left==NULL){
+//         return 1;
+//     }
+//     int sum=maxDepth(rootNode->left)+maxDepth(rootNode->right)+1;
+//     return sum;
+// }
+
 int maxDepth(Node* rootNode){
-    if(rootNode->right==NULL || rootNode->left==NULL){
-        return 1;
+    if(rootNode==NULL){
+        return 0;
     }
-    int sum=maxDepth(rootNode->left)+maxDepth(rootNode->right)+1;
+
+    int leftDepth=maxDepth(rootNode->left);
+    int rightDepth=maxDepth(rootNode->right);
+
+    int sum=max(leftDepth, rightDepth)+1;
     return sum;
 }
 
