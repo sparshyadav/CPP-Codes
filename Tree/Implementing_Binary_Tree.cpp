@@ -26,6 +26,15 @@ void preorderTraversal(Node *rootNode)
     preorderTraversal(rootNode->right);
 }
 
+void inorderTraversal(Node* rootNode){
+    if(rootNode==NULL){
+        return;
+    }
+    inorderTraversal(rootNode->left);
+    cout<<rootNode->value<<" ";
+    inorderTraversal(rootNode->right);
+}
+
 int main()
 {
 
@@ -45,6 +54,9 @@ int main()
     rootNode->right->right = new Node(11);
 
     preorderTraversal(rootNode);
+    cout<<endl;
+    inorderTraversal(rootNode);
+    cout<<endl;
 
     return 0;
 }
