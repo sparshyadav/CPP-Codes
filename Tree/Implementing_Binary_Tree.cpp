@@ -1,27 +1,50 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-class Node{
+class Node
+{
 public:
     int value;
-    Node* left;
-    Node* right;
+    Node *left;
+    Node *right;
 
-    Node(int v){
-        value=v;
-        left=right=NULL;
+    Node(int v)
+    {
+        value = v;
+        left = right = NULL;
     }
 };
 
-int main(){
+void preorderTraversal(Node *rootNode)
+{
+    if (rootNode == NULL)
+    {
+        return;
+    }
+    cout << rootNode->value << " ";
+    preorderTraversal(rootNode->left);
+    preorderTraversal(rootNode->right);
+}
 
-    Node* root=new Node(2);
-    root->left=new Node(3);
-    root->right=new Node(4);
+int main()
+{
 
-    cout<<"Root Node: "<<root->value<<endl;
-    cout<<"Right Node:"<<root->right->value<<endl;
-    cout<<"Left Node: "<<root->left->value<<endl;
+    // Node* root=new Node(2);
+    // root->left=new Node(3);
+    // root->right=new Node(4);
+
+    // cout<<"Root Node: "<<root->value<<endl;
+    // cout<<"Right Node:"<<root->right->value<<endl;
+    // cout<<"Left Node: "<<root->left->value<<endl;
+
+    Node *rootNode = new Node(2);
+    rootNode->left = new Node(4);
+    rootNode->right = new Node(10);
+    rootNode->left->left = new Node(6);
+    rootNode->left->right = new Node(5);
+    rootNode->right->right = new Node(11);
+
+    preorderTraversal(rootNode);
 
     return 0;
 }
