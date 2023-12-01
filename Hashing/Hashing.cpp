@@ -1,16 +1,8 @@
-#include<iostream>
-#include<vector>
-#include<list>
+#include <bits/stdc++.h>
 using namespace std;
 
-class hashing{
-    vector<list<int>> hashtable;
-    int size;
-};
-
-int main(){
-
-
+int main()
+{
 
     return 0;
 }
