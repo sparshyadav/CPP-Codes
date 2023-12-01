@@ -18,6 +18,11 @@ class Hashing{
         int idx=hashvalue(key);
         hashtable[idx].push_back(key);
     }
+
+    list<int>::iterator search(int key){
+        int idx=hashvalue(key);
+        return find(hashtable[idx].begin(), hashtable[idx].end().key);
+    }
 };
 
 int main()
