@@ -1,15 +1,17 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main(){
+int main()
+{
 
-    unordered_map<string, int> record;
-    record.insert(make_pair("Sparsh", 1383));
-    record.insert(make_pair("Shreya", 1421));
-    record.insert(make_pair("Udhav", 1472));
+    unordered_map<int, string> record;
 
-    for(auto it: record){
-        cout<<it.first<<" "<<it.second<<endl;
+    record.insert(make_pair(2, "Sweta"));
+    record.insert(make_pair(1, "Sparsh"));
+
+    for (auto element : record)
+    {
+        cout << "Roll Number - " << element.first << " Name - " << element.second << endl;
     }
 
     return 0;
