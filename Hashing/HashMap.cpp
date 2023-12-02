@@ -12,16 +12,21 @@ int main()
     directory2["Sparsh"] = 5328795;
     directory2["Shreya"] = 5436334;
 
-    for (auto element : directory)
-    { // Iterating through the hashmap
-        cout << "Name - " << element.first << " Number - " << element.second << endl;
-        ;
-    }
+    // for (auto element : directory)
+    // { // Iterating through the hashmap
+    //     cout << "Name - " << element.first << " Number - " << element.second << endl;
+    // }
 
-    for (auto element : directory2)
+    // for (auto element : directory2)
+    // {
+    //     cout << "Name - " << element.first << " Number - " << element.second << endl;
+    // }
+
+    map<string, int>::iterator itr;
+
+    for (itr = directory.begin(); itr != directory.end(); itr++)
     {
-        cout << "Name - " << element.first << " Number - " << element.second << endl;
-        ;
+        cout << "Name - " << itr->first << " Number - " << itr->second << endl;
     }
 
     return 0;
