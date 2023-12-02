@@ -7,18 +7,20 @@ int main()
 
     int elements[7] = {1, 1, 2, 1, 3, 3, 3};
 
-    map<int, int> ele;
+    map<int, int> mpp;
+
     for (int i = 0; i < 7; i++)
     {
-        ele[elements[i]] ++;
+        mpp[elements[i]]++;
     }
 
     int sum = 0;
-    for (auto it : ele)
+
+    for (auto element : mpp)
     {
-        if (it.second > 1)
+        if (element.second > 1)
         {
-            sum += it.first;
+            sum += element.first;
         }
     }
 

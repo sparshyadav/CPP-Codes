@@ -22,9 +22,16 @@ int main()
     //     cout << "Name - " << element.first << " Number - " << element.second << endl;
     // }
 
-    map<string, int>::iterator itr;
+    // map<string, int>::iterator itr;
 
-    for (itr = directory.begin(); itr != directory.end(); itr++)
+    // for (itr = directory.begin(); itr != directory.end(); itr++)
+    // {
+    //     cout << "Name - " << itr->first << " Number - " << itr->second << endl;
+    // }
+
+    map<string, int>::reverse_iterator itr;
+
+    for (itr = directory.rbegin(); itr != directory.rend(); itr++)
     {
         cout << "Name - " << itr->first << " Number - " << itr->second << endl;
     }
