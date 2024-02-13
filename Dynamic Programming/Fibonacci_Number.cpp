@@ -41,7 +41,7 @@ int memo(int n, vector<int> &dp)
         return dp[n];
     }
 
-    return memo(n - 1, dp) + memo(n - 2, dp);
+    return dp[n] = memo(n - 1, dp) + memo(n - 2, dp);
 }
 
 int main()
