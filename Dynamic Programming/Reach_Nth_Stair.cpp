@@ -30,6 +30,8 @@
 //     return 0;
 // }
 
+
+
 // Memoization
 // #include <bits/stdc++.h>
 // using namespace std;
@@ -69,22 +71,59 @@
 //     return 0;
 // }
 
+
+
 // Tabulation
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int tab(int n)
+// {
+//     vector<int> dp(n + 1);
+//     dp[0] = 1;
+//     dp[1] = 1;
+
+//     for (int i = 2; i <= n; i++)
+//     {
+//         dp[i] = dp[i - 1] + dp[i - 2];
+//     }
+
+//     return dp[n];
+// }
+
+// int main()
+// {
+
+//     int n;
+//     cout << "Enter the Number of Stairs you have to Climb: " << endl;
+//     cin >> n;
+
+//     int ans = tab(n);
+//     cout << ans;
+
+//     return 0;
+// }
+
+
+
+// Tabulation with Space Optimization -> O(1)
 #include <bits/stdc++.h>
 using namespace std;
 
 int tab(int n)
 {
-    vector<int> dp(n + 1);
-    dp[0] = 1;
-    dp[1] = 1;
+    int curr;
+    int prev = 1;
+    int prev2 = 1;
 
     for (int i = 2; i <= n; i++)
     {
-        dp[i] = dp[i - 1] + dp[i - 2];
+        curr = prev + prev2;
+        prev2 = prev;
+        prev = curr;
     }
 
-    return dp[n];
+    return prev;
 }
 
 int main()
