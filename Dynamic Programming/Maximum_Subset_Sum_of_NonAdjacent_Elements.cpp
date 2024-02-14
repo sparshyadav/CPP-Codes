@@ -40,6 +40,8 @@
 //     return 0;
 // }
 
+
+
 // Memoization
 // #include <bits/stdc++.h>
 // using namespace std;
@@ -89,34 +91,91 @@
 //     return 0;
 // }
 
+
+
 // Tabulation
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int tab(int arr[], int n)
+// {
+//     vector<int> dp(n + 1);
+//     dp[0] = arr[0];
+//     int neg = 0;
+
+//     for (int i = 1; i < n; i++)
+//     {
+//         int pick = 0;
+//         if (i - 2 >= 0)
+//         {
+//             pick = arr[i] + dp[i - 2];
+//         }
+//         else
+//         {
+//             pick = arr[i] + neg;
+//         }
+
+//         int notPick = 0 + dp[i - 1];
+
+//         dp[i] = max(pick, notPick);
+//     }
+
+//     return dp[n - 1];
+// }
+
+// int main()
+// {
+
+//     int n;
+//     cout << "Enter the Number of Elements You Want in the Array" << endl;
+//     cin >> n;
+
+//     int arr[n];
+//     cout << "Enter the Elements in Your Array" << endl;
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> arr[i];
+//     }
+
+//     int sum = tab(arr, n);
+//     cout << sum;
+
+//     return 0;
+// }
+
+
+
+// Tabulation with Space Optimization -> O(1)
 #include <bits/stdc++.h>
 using namespace std;
 
 int tab(int arr[], int n)
 {
-    vector<int> dp(n + 1);
-    dp[0] = arr[0];
-    int neg = 0;
+    int prev = arr[0];
+    int prev2 = 0;
+    int curr = 0;
 
     for (int i = 1; i < n; i++)
     {
         int pick = 0;
         if (i - 2 >= 0)
         {
-            pick = arr[i] + dp[i - 2];
+            pick = arr[i] + prev2;
         }
         else
         {
-            pick = arr[i] + neg;
+            pick = arr[i] + 0;
         }
 
-        int notPick = 0 + dp[i - 1];
+        int notPick = 0 + prev;
 
-        dp[i] = max(pick, notPick);
+        int curr = max(pick, notPick);
+
+        prev2 = prev;
+        prev = curr;
     }
 
-    return dp[n - 1];
+    return prev;
 }
 
 int main()
