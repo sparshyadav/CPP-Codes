@@ -1,27 +1,25 @@
-#include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-class Student{
-    public:
-    int roll;
-    int group;
+class Student
+{
+public:
+    string name;
+    int age;
+    int rollNumber;
+    string grade;
 };
 
-int main(){
+int main()
+{
 
-    //Statically Allocating an Object
-    Student Sparsh;
-    Sparsh.roll=1383;
-    Sparsh.group=4;
-    cout<<Sparsh.roll<<endl;
-    cout<<Sparsh.group<<endl;
+    Student s1;
+    s1.name = "Sparsh";
+    s1.age = 22;
+    s1.rollNumber = 1383;
+    s1.grade = "A+";
 
-    //Dynamically Allocating an Object
-    Student *Shreya=new Student;
-    Shreya->roll=1421;
-    Shreya->group=5;
-    cout<<Shreya->roll<<endl;
-    cout<<Shreya->group<<endl;
+    cout << s1.name;
 
     return 0;
 }
