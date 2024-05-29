@@ -15,6 +15,13 @@ public:
         this->balance = balance;
     }
 
+    Customer(Customer &B)
+    {
+        name = B.name;
+        accountNumber = B.accountNumber;
+        balance = B.balance;
+    }
+
     void Display()
     {
         cout << "Name - " << name << endl;
@@ -27,4 +34,7 @@ int main()
 {
     Customer a1("Sparsh", 43827372, 10000000);
     a1.Display();
+
+    Customer a2(a1);
+    a2.Display();
 }
