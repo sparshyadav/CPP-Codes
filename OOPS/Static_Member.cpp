@@ -6,9 +6,9 @@ class Customer
     string name;
     int accountNumber;
     int balance;
-    static int totalCustomer;
 
 public:
+    static int totalCustomer;
     Customer(string name, int accountNumber, int balance)
     {
         this->name = name;
@@ -25,18 +25,26 @@ public:
         cout << "Total Customers - " << totalCustomer << endl;
         cout << endl;
     }
+
+    void displayTotalCustomers()
+    {
+        cout << "Total Customers - " << totalCustomer << endl;
+    }
 };
 
 int Customer ::totalCustomer = 0;
 
 int main()
 {
+    Customer ::totalCustomer = 5;
 
     Customer c1("Sparsh", 1383, 5000);
-    Customer c2("Shreya", 1421, 10000);
-
     c1.display();
+
+    Customer c2("Shreya", 1421, 10000);
     c2.display();
+
+    c1.displayTotalCustomers();
 
     return 0;
 }
