@@ -11,6 +11,13 @@ protected:
 
 public:
     int c;
+
+    void fun()
+    {
+        a = 10;
+        b = 20;
+        c = 30;
+    }
 };
 
 int main()
@@ -20,6 +27,7 @@ int main()
     // Sparsh.a=19;
     // Sparsh.b=19;
     Sparsh.c = 19;
+    Sparsh.fun();
 
     return 0;
 }
