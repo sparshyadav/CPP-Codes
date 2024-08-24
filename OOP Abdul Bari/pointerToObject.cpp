@@ -29,5 +29,13 @@ int main()
     p->breadth = 20;
     p->area();
 
+
+    Rectangle *q;
+    q=new Rectangle;
+
+    q->length=50;
+    q->breadth=10;
+    q->area();
+
     return 0;
 }
