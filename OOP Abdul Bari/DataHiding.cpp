@@ -31,10 +31,12 @@ public:
         }
     }
 
-    void getLengthBreadth()
-    {
-        cout << "Length: " << length << endl;
-        cout << "Breadth: " << breadth << endl;
+    int getLength(){
+        return length;
+    }
+
+    int getBreadth(){
+        return breadth;
     }
 
     void area()
@@ -48,6 +50,7 @@ int main()
     Rectangle r;
     r.setLength(5);
     r.setBreadth(10);
-    r.getLengthBreadth();
+    cout<<r.getBreadth();
+    cout<<r.getLength();
     r.area();
 }
