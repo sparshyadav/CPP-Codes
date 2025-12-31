@@ -1,117 +1,148 @@
-#include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-class Node{
-    public:
+struct Node
+{
     int val;
-    Node* next;
+    Node *next;
 
-    Node(int data){
-        val=data;
-        next=NULL;
+    Node(int x)
+    {
+        val = x;
+        next = nullptr;
     }
 };
 
-void insertAtHead(Node* &head, int val){
-    Node* newNode=new Node(val);
-    newNode->next=head;
-    head=newNode;
-}
+class LinkedList
+{
+public:
+    Node *head;
 
-void insertAtTail(Node* &head, int val){
-    Node* newNode=new Node(val);
-    Node* temp=head;
-    while(temp->next!=NULL){
-        temp=temp->next;
+    LinkedList()
+    {
+        head = nullptr;
     }
-    temp->next=newNode;
-}
+};
 
-void insertAtKthPosition(Node* &head, int val, int k){
-    Node* newNode =new Node(val);
-    if(k==0){
-        insertAtHead(head, val);
+void printLinkedList(Node *head)
+{
+    Node *temp = head;
+
+    while (temp != nullptr)
+    {
+        cout << temp->val << " -> ";
+        temp = temp->next;
+    }
+
+    cout << "nullptr";
+    cout << endl;
+};
+
+void insertAtFront(Node *&head, int x)
+{
+    Node *newNode = new Node(x);
+    newNode->next = head;
+    head = newNode;
+};
+
+void insertAtEnd(Node *&head, int x)
+{
+    Node *newNode = new Node(x);
+
+    if (head == nullptr)
+    {
+        head = newNode;
         return;
     }
-    int currentPos=0;
-    Node* temp=head;
-    while(currentPos!=k-1){
-        temp=temp->next;
-        currentPos++;
+
+    Node *temp = head;
+    while (temp->next != nullptr)
+    {
+        temp = temp->next;
     }
-    newNode->next=temp->next;
-    temp->next=newNode;
-}
 
-void updateAtKthPosition(Node* &head, int val, int k){
-    Node* temp=head;
-    int currentPos=0;
-    while(currentPos!=k){
-        temp=temp->next;
-        currentPos++;
+    temp->next = newNode;
+};
+
+void deleteNode(Node *head, int x)
+{
+    if (head == nullptr)
+    {
+        return;
     }
-    temp->val=val;
-}
 
-void deleteAtHead(Node* &head){
-    Node* temp=head;
-    head=head->next;
-    free(temp);
-}
-
-void deleteAtTail(Node* &head){
-    Node* temp=head;
-    while(temp->next->next=NULL){
-        temp=temp->next;
+    Node *temp = head;
+    if (head->val == x)
+    {
+        head = head->next;
+        delete temp;
+        return;
     }
-    Node* temp2=temp->next;
-    temp->next=NULL;
-    free(temp2);
-}
 
-void deleteAtKthPosition(Node* &head. int k){
-    Node*temp=head;
-    int currPos=0;
-    while(currpos!=k-1){
-        temp=temp->next;
+    while (temp->next != nullptr && temp->next->val != x)
+    {
+        temp = temp->next;
     }
-    Node* del=temp->next;
-    temp->next=temp->next->next;
-    delete del;
-}
 
-void Display(Node* head){
-    Node* temp=head;
-    while(temp!=NULL){
-        cout<<temp->val<<" ";
-        temp=temp->next;
+    if (temp->next == nullptr)
+    {
+        return;
     }
-    cout<<endl;
-}
 
-int main(){
+    Node *nodeToDelete = temp->next;
+    temp->next = temp->next->next;
+    delete nodeToDelete;
+};
 
-    // Node* n=new Node(1);
-    // cout<<n->val<<" "<<n->next;
+int getLength(Node *head)
+{
+    int length = 0;
+    Node *temp = head;
 
-    Node* head=NULL;
-    insertAtHead(head, 2);
-    Display(head);
-    insertAtHead(head, 5);
-    Display(head);
-    insertAtTail(head, 10);
-    Display(head);
-    insertAtTail(head, 15);
-    Display(head);
-    insertAtKthPosition(head, 7, 2);
-    Display(head);
-    updateAtKthPosition(head, 100, 4);
-    Display(head);
-    deleteAtHead(head);
-    Display(head);
-    deleteAtTail(head);
-    Display(head);
+    while (temp != nullptr)
+    {
+        length++;
+        temp = temp->next;
+    }
+
+    return length;
+};
+
+bool search(Node *head, int x)
+{
+    Node *temp = head;
+
+    while (temp != nullptr)
+    {
+        if (temp->val == x)
+        {
+            return true;
+        }
+
+        temp = temp->next;
+    }
+
+    return false;
+};
+
+int main()
+{
+    Node *head = nullptr;
+    insertAtFront(head, 10);
+    insertAtEnd(head, 20);
+    insertAtEnd(head, 30);
+
+    cout << "Linked List: ";
+    printLinkedList(head);
+
+    cout << "Length: " << getLength(head) << endl;
+
+    cout << "Search 20: " << (search(head, 20) ? "Found" : "Not found") << endl;
+    cout << "Search 40: " << (search(head, 40) ? "Found" : "Not found") << endl;
+
+    deleteNode(head, 20);
+    cout << "After deleting 20: ";
+    printLinkedList(head);
 
     return 0;
-
 }
